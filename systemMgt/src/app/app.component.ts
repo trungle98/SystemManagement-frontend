@@ -11,7 +11,9 @@ export class AppComponent {
   private roles: string[] = [];
   isLoggedIn = false;
   showAdminBoard = false;
-  showModeratorBoard = false;
+  showStaffBoard = false;
+  showManagerBoard = false;
+  showDeptBoard = false;
   username?: string;
 
   constructor(private storageService: StorageService, private authService: AuthService) { }
@@ -22,11 +24,11 @@ export class AppComponent {
     if (this.isLoggedIn) {
       const user = this.storageService.getUser();
       this.roles = user.roles;
-
+      console.log(this.roles)
       this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
-      this.showModeratorBoard = this.roles.includes('ROLE_STAFF');
-      this.showModeratorBoard = this.roles.includes('ROLE_MANAGER');
-      this.showModeratorBoard = this.roles.includes('ROLE_DEPT');
+      this.showStaffBoard = this.roles.includes('ROLE_STAFF');
+      this.showManagerBoard = this.roles.includes('ROLE_MANAGER');
+      this.showDeptBoard = this.roles.includes('ROLE_DEPT');
 
       this.username = user.username;
     }
