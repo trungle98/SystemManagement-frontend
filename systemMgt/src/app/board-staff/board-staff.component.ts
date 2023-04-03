@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../_services/user.service';
+import { Idea } from '../models/idea';
+import { Topic } from '../models/topic';
+import { TopicService } from '../_services/topic.service';
 
 @Component({
   selector: 'app-board-staff',
@@ -7,27 +9,29 @@ import { UserService } from '../_services/user.service';
   styleUrls: ['./board-staff.component.css']
 })
 export class BoardStaffComponent implements OnInit {
-  content?: string;
+  topics?: Topic[];
+  msg?: String;
 
-  constructor(private userService: UserService) { }
+  constructor(private topicService: TopicService) { }
 
   ngOnInit(): void {
-    this.userService.getStaffBoard().subscribe({
+    this.topicService.getAllTopic().subscribe({
       next: data => {
-        this.content = data;
+        this.topics = data;
       },
       error: err => {
         if (err.error) {
           try {
             const res = JSON.parse(err.error);
-            this.content = res.message;
+            this.topics = res.message;
           } catch {
-            this.content = `Error with status: ${err.status} - ${err.statusText}`;
+            this.msg = `Error with status: ${err.status} - ${err.statusText}`;
           }
         } else {
-          this.content = `Error with status: ${err.status}`;
+          this.msg = `Error with status: ${err.status}`;
         }
       }
     });
   }
+
 }

@@ -15,6 +15,10 @@ import { BoardDeptComponent } from './board-dept/board-dept.component';
 import { BoardManagerComponent } from './board-manager/board-manager.component';
 
 import { httpInterceptorProviders } from './_helpers/http.interceptor';
+import { CategoryMgtComponent } from './category-mgt/category-mgt.component';
+import { ViewIdeaComponent } from './components/view-idea/view-idea.component';
+import { DetailIdeaComponent } from './components/detail-idea/detail-idea.component';
+import { CommentComponent } from './components/comment/comment.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +30,11 @@ import { httpInterceptorProviders } from './_helpers/http.interceptor';
     BoardAdminComponent,
     BoardStaffComponent,
     BoardDeptComponent,
-    BoardManagerComponent
+    BoardManagerComponent,
+    CategoryMgtComponent,
+    ViewIdeaComponent,
+    DetailIdeaComponent,
+    CommentComponent
   ],
   imports: [
     BrowserModule,

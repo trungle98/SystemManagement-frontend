@@ -1,6 +1,21 @@
-<div class="container">
-    <header class="jumbotron">
-      <p>{{ content }}</p>
-    </header>
-  </div>
-  
+<table class="table">
+  <thead>
+      <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Name</th>
+          <th scope="col">Deadline_1</th>
+          <th scope="col">Deadline_2</th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor ="let t of topics">
+          <td>{{t.id}}</td>
+          <td>{{t.name}}</td>
+          <td>{{t.closure}}</td>
+          <td>{{t.finalClosure}}</td>
+          <td><a href="/viewIdea/{{t.id}}" routerLink="/viewIdea/{{t.id}}">View Ideas</a></td>
+      </tr>
+  </tbody>
+
+</table>

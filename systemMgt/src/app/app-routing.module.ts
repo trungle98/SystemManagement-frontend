@@ -9,6 +9,9 @@ import { BoardAdminComponent } from './board-admin/board-admin.component';
 import { BoardStaffComponent } from './board-staff/board-staff.component';
 import { BoardDeptComponent } from './board-dept/board-dept.component';
 import { BoardManagerComponent } from './board-manager/board-manager.component';
+import { CategoryMgtComponent } from './category-mgt/category-mgt.component';
+import { ViewIdeaComponent } from './components/view-idea/view-idea.component';
+import { DetailIdeaComponent } from './components/detail-idea/detail-idea.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -19,6 +22,9 @@ const routes: Routes = [
   { path: 'dept', component: BoardDeptComponent },
   { path: 'admin', component: BoardAdminComponent },
   { path: 'manager', component: BoardManagerComponent },
+  { path: 'category', component: CategoryMgtComponent },
+  {path: 'viewIdea/:topicId', component:ViewIdeaComponent},
+  {path: 'detailIdea/:ideaId', component:DetailIdeaComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 

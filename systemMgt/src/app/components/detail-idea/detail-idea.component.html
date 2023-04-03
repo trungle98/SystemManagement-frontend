@@ -1,0 +1,15 @@
+<h3>Author</h3>
+{{idea?.author}}
+<br>
+<h3>brief</h3>
+{{idea?.brief}}
+<br>
+<h3>content</h3>
+{{idea?.content}}
+<br>
+<h3>fileLocation</h3>
+{{idea?.fileLocation}}
+<div *ngIf="idea?.fileLocation != ''">
+    <button (click)="download(idea?.fileLocation)">Download</button>
+
+</div>

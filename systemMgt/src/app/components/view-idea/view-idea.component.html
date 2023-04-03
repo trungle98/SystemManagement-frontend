@@ -1,0 +1,30 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">brief</th>
+            <th scope="col">content</th>
+            <th scope="col">author</th>
+            <th scope="col">file_location</th>
+            <th scope="col">views</th>
+            <th scope="col">like</th>
+            <th scope="col">dislike</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor ="let t of ideas">
+            <td>{{t.id}}</td>
+            <td>{{t.brief}}</td>
+            <td>{{t.content}}</td>
+            <td>{{t.author}}</td>
+            <td>{{t.fileLocation}}</td>
+            <td>{{t.views}}</td>
+            <td>{{t.totalLike}}</td>
+            <td>{{t.totalDislike}}</td>
+            <td><a href="/detailIdea/{{t.id}}" routerLink="/detailIdea/{{t.id}}">Details</a> | <button (onclick) = "reactionIdea(true,t.id)">Like</button> | <button (onclick) = "reactionIdea(true,t.id)">Dislike</button></td>
+        </tr>
+    </tbody>
+  
+  </table>
+  

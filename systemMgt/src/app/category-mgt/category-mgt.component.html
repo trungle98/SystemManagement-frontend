@@ -1,0 +1,17 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor ="let c of content">
+            <td>{{c.id}}</td>
+            <td>{{c.name}}</td>
+            <td><button class="fa fa-edit" style="color: red;"(click)="getCate(c.id)"></button> | <button class="fa fa-info" style="color: red;"(click)="detailCate(c.id)"></button> | <button class="fa fa-trash" style="color: red;"(click)="deleteCate(c.id)"></button></td>
+        </tr>
+    </tbody>
+
+</table>
