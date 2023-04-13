@@ -1,0 +1,12 @@
+<form #cateForm="ngForm" (ngSubmit)="onSubmit(cateForm)">
+  <div class="form-group" hidden>
+    <label for="id">Category name</label>
+    <input type="text" class="form-control" id="id" name="id" [(ngModel)]="cate.id" required>
+  </div>
+    <div class="form-group">
+      <label for="name">Category name</label>
+      <input type="text" class="form-control" id="name" name="name" [(ngModel)]="cate.name" required>
+    </div>
+
+    <button class="btn btn-primary" type="submit">Submit</button>
+  </form>

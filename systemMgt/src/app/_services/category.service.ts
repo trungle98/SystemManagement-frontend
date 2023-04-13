@@ -17,12 +17,12 @@ export class CategoryService {
     return this.http.get<Category[]> (API_URL + 'category/all');
   }
 
-  getCateById(): Observable<any> {
-    return this.http.get(API_URL + 'category/get', { responseType: 'text' });
+  getCateById(id:number): Observable<any> {
+    return this.http.get(API_URL + 'category/get/?id='+id, { responseType: 'text' });
   }
   
   saveCate(cate: Category): Observable<any> {
-    return this.http.post(API_URL + 'category/save', { responseType: 'blob' });
+    return this.http.post(API_URL + 'category/save',cate, { responseType: 'text' });
   }
 
   delCate(id: number): Observable<any> {

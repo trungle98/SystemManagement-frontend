@@ -1,3 +1,14 @@
+
+<div *ngIf="showAlert" class="alert alert-danger" role="alert">
+    this Idea could not be saved because closure date exceeded!
+  </div>
+<div>
+    <div *ngIf="showDoneAlert" class="alert alert-success" role="alert">
+        Idea is saved!
+      </div>
+    <div>
+    <button (click)="goToCreateCategory()" class="btn btn-success">Create Idea</button>
+</div>
 <table class="table">
     <thead>
         <tr>

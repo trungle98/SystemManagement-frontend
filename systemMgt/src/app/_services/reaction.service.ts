@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ReactionByTopic } from '../models/reaction-by-topic';
+import { Reaction } from '../models/reaction';
 
 const API_URL = 'http://localhost:8081/api/reaction';
 @Injectable({
@@ -16,9 +17,9 @@ export class ReactionService {
     return this.http.get<ReactionByTopic[]> (API_URL + '/getByTopicId/?topicId='+topicId);
   }
 
-  saveReaction(isLike:boolean, ideaId:number, userId: number){
+  saveReaction(reaction:Reaction){
     
-    return this.http.post(API_URL + '/save', { responseType: 'text' });
+    return this.http.post(API_URL + '/save', reaction, { responseType: 'text' });
   }
 
   // getTopicById(): Observable<any> {

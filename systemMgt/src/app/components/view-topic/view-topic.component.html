@@ -1,0 +1,40 @@
+<div *ngIf="showAlert" class="alert alert-danger" role="alert">
+    this Idea could not be saved because closure date exceeded!
+  </div>
+<div>
+    <div *ngIf="showAlert" class="alert alert-success" role="alert">
+        Idea is saved!
+      </div>
+    <div>
+    <button (click)="goToCreateTopic()" class="btn btn-success">Create Idea</button>
+</div>
+<table class="table table-striped table-responsive-lg">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Deadline_1</th>
+            <th scope="col">Deadline_2</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody style="height: 40em;">
+        <tr *ngFor ="let t of topics" [ngClass]="{'highlightedRed': isGreaterThenFinal(t.finalClosure), 'highlightedYellow': isLowerClosure(t.closure), 'highlightGreen': isBetween(t.closure, t.finalClosure)}">
+            <td>{{t.id}}</td>
+            <td>{{t.name}}</td>
+            <td>{{t.closure}}</td>
+            <td>{{t.finalClosure}}</td>
+            <td><button class="fa fa-edit" style="color: red;"(click)="getTopic(t.id)"></button> | <button class="fa fa-info" style="color: red;"(click)="detailTopic(t.id)"></button> | <button class="fa fa-trash" style="color: red;"(click)="deleteTopic(t.id)"></button></td>
+        </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+          <td><button (click)="goPreviousPage()" class="btn btn-link" [ngClass]="{'hideBtn': currPage<=0}">previous</button></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td><button (click)="goNextPage()" class="btn btn-link" [ngClass]="{'hideBtn': currPage>=totalPages}">next</button> </td>
+      </tr>
+    </tfoot>
+  </table>
+  

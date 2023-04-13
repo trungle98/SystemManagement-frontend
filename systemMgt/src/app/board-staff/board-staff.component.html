@@ -1,4 +1,4 @@
-<table class="table">
+<table class="table table-striped table-responsive-lg">
   <thead>
       <tr>
           <th scope="col">ID</th>
@@ -8,8 +8,8 @@
           <th></th>
       </tr>
   </thead>
-  <tbody>
-      <tr *ngFor ="let t of topics">
+  <tbody style="height: 40em;">
+      <tr *ngFor ="let t of topics" [ngClass]="{'highlightedRed': isGreaterThenFinal(t.finalClosure), 'highlightedYellow': isLowerClosure(t.closure), 'highlightGreen': isBetween(t.closure, t.finalClosure)}">
           <td>{{t.id}}</td>
           <td>{{t.name}}</td>
           <td>{{t.closure}}</td>
@@ -17,5 +17,13 @@
           <td><a href="/viewIdea/{{t.id}}" routerLink="/viewIdea/{{t.id}}">View Ideas</a></td>
       </tr>
   </tbody>
-
+  <tfoot>
+    <tr>
+        <td><button (click)="goPreviousPage()" class="btn btn-link" [ngClass]="{'hideBtn': currPage<=0}">previous</button></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><button (click)="goNextPage()" class="btn btn-link" [ngClass]="{'hideBtn': currPage>=totalPages}">next</button> </td>
+    </tr>
+  </tfoot>
 </table>

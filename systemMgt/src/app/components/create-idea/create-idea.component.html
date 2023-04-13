@@ -1,0 +1,26 @@
+<form #ideaForm="ngForm" (ngSubmit)="onSubmit(ideaForm)">
+    <div class="form-group">
+      <label for="brief">Brief:</label>
+      <input type="text" class="form-control" id="brief" name="brief" [(ngModel)]="idea.brief" required>
+    </div>
+    <div class="form-group">
+      <label for="content">Content:</label>
+      <textarea id="content" class="form-control" name="content" [(ngModel)]="idea.content" required></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="fileLocation">File Location:</label>
+      <input type="file" class="form-control-file"  id="fileLocation" name="fileLocation" (change)="onFileSelected($event)" required>
+    </div>
+    <div >
+        <label  >Agree terms and conditions:  </label>
+        <input  type="checkbox" name="agree" [(ngModel)]="agree"required>
+      </div>
+    <div>
+        <select [(ngModel)]="selector" name="mySelect" required>
+            <option [value]="''">Select an option</option>
+            <option *ngFor="let option of cates" [value]="option.id">{{ option.name }}</option>
+          </select>
+    </div>
+    <button class="btn btn-primary" type="submit">Submit</button>
+  </form>

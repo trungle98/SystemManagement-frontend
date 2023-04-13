@@ -12,6 +12,10 @@ import { BoardManagerComponent } from './board-manager/board-manager.component';
 import { CategoryMgtComponent } from './category-mgt/category-mgt.component';
 import { ViewIdeaComponent } from './components/view-idea/view-idea.component';
 import { DetailIdeaComponent } from './components/detail-idea/detail-idea.component';
+import { CreateIdeaComponent } from './components/create-idea/create-idea.component';
+import { CreateCategoryComponent } from './components/create-category/create-category.component';
+import { ViewTopicComponent } from './components/view-topic/view-topic.component';
+import { CreateTopicComponent } from './components/create-topic/create-topic.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -25,6 +29,10 @@ const routes: Routes = [
   { path: 'category', component: CategoryMgtComponent },
   {path: 'viewIdea/:topicId', component:ViewIdeaComponent},
   {path: 'detailIdea/:ideaId', component:DetailIdeaComponent},
+  {path: 'idea/create', component:CreateIdeaComponent},
+  {path: 'category/create', component:CreateCategoryComponent},
+  {path: 'topic/view', component:ViewTopicComponent},
+  {path: 'topic/create', component:CreateTopicComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 

@@ -1,3 +1,5 @@
+<div><button (click)="backToPreviousPage()">Back to previous page</button></div>
+<hr>
 <h3>Author</h3>
 {{idea?.author}}
 <br>
@@ -11,5 +13,20 @@
 {{idea?.fileLocation}}
 <div *ngIf="idea?.fileLocation != ''">
     <button (click)="download(idea?.fileLocation)">Download</button>
+
+</div>
+<br>
+
+<div>
+    <h2>Comment</h2>
+    <div>
+        <input type="text" [(ngModel)]="commentInput">
+        <button (click)="SendComment()">Comment</button>
+    </div>
+    <hr>
+    <div *ngFor ="let c of comments">
+        ({{c.createdDate}})-{{c.commentContent}}
+        <hr>
+    </div>
 
 </div>

@@ -12,18 +12,18 @@ export class TopicService {
 
   constructor(private http: HttpClient) {}
 
-  getAllTopic(): Observable<Topic[]> {
-    console.log("URL CATE"+ API_URL+'/all');
+  getAllTopic(pageNo:number): Observable<any> {
+    console.log("URL CATE"+ API_URL+'/all?');
     
-    return this.http.get<Topic[]> (API_URL + '/all');
+    return this.http.get<Topic[]> (API_URL + '/all?pageNo='+pageNo);
   }
 
-  getTopicById(): Observable<any> {
-    return this.http.get(API_URL + '/get', { responseType: 'text' });
+  getTopicById(topicId:number): Observable<any> {
+    return this.http.get(API_URL + '/get/?id='+topicId, { responseType: 'text' });
   }
   
-  saveTopic(cate: Topic): Observable<any> {
-    return this.http.post(API_URL + '/save', { responseType: 'blob' });
+  saveTopic(topic: Topic): Observable<any> {
+    return this.http.post(API_URL + '/save',topic, { responseType: 'blob' });
   }
 
   delTopic(id: number): Observable<any> {

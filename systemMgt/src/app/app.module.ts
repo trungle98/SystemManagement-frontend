@@ -19,6 +19,10 @@ import { CategoryMgtComponent } from './category-mgt/category-mgt.component';
 import { ViewIdeaComponent } from './components/view-idea/view-idea.component';
 import { DetailIdeaComponent } from './components/detail-idea/detail-idea.component';
 import { CommentComponent } from './components/comment/comment.component';
+import { CreateIdeaComponent } from './components/create-idea/create-idea.component';
+import { CreateCategoryComponent } from './components/create-category/create-category.component';
+import { ViewTopicComponent } from './components/view-topic/view-topic.component';
+import { CreateTopicComponent } from './components/create-topic/create-topic.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +38,11 @@ import { CommentComponent } from './components/comment/comment.component';
     CategoryMgtComponent,
     ViewIdeaComponent,
     DetailIdeaComponent,
-    CommentComponent
+    CommentComponent,
+    CreateIdeaComponent,
+    CreateCategoryComponent,
+    ViewTopicComponent,
+    CreateTopicComponent
   ],
   imports: [
     BrowserModule,

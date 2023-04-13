@@ -9,6 +9,8 @@ export class Idea {
 
     fileLocation? :String ;
 
-    topicId? :String ;
+    topicId? :number ;
     views?:number;
+    categoryId?:number;
+    constructor(brief:String, content :String, author :String, fileLocation :String, topicId :String, categoryId:number) {}
     }

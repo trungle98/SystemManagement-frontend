@@ -2,6 +2,7 @@ import { HttpClient, HttpEvent, HttpEventType } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Idea } from '../models/idea';
+import { Comment } from 'src/app/models/comment';
 import { IdeaReaction } from '../models/idea-reaction';
 
 const API_URL = 'http://localhost:8081/api/idea';
@@ -27,8 +28,10 @@ export class IdeaService {
     return this.http.get<Idea>(API_URL + '/get/?id='+ideaId);
   }
 
-  saveIdea(cate: Idea): Observable<any> {
-    return this.http.post(API_URL + '/save', { responseType: 'blob' });
+  saveIdea(cate: Idea, formData: FormData): Observable<any> {
+    console.log(cate);
+    
+    return this.http.post(API_URL + '/save?topicId='+cate.topicId,formData, { responseType: 'blob' });
   }
 
   delIdea(id: number): Observable<any> {
@@ -37,6 +40,9 @@ export class IdeaService {
   downloadFile(filename: String) {
     return this.http.get(API_URL+'/files/?filename='+filename, {responseType:'blob'})
   }
-
+  getCommentByIdeaId(ideaId:number): Observable<Comment[]> {
+    
+    return this.http.get<Comment[]> (API_URL + '/getAllComment/?ideaId='+ideaId);
+  }
 
 }

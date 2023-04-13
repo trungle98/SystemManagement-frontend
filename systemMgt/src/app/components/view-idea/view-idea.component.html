@@ -1,4 +1,16 @@
-<table class="table">
+<div><button (click)="backToList()" class="btn btn-primary">Back to List</button></div>
+<hr>
+<div *ngIf="showAlert" class="alert alert-danger" role="alert">
+    this Idea could not be saved because closure date exceeded!
+  </div>
+<div>
+    <div *ngIf="showDoneAlert" class="alert alert-success" role="alert">
+        Idea is saved!
+      </div>
+    <div>
+    <button (click)="goToCreateIdea()" class="btn btn-success">Create Idea</button>
+</div>
+<table class="table table-striped table-responsive-lg ">
     <thead>
         <tr>
             <th scope="col">ID</th>
@@ -9,7 +21,7 @@
             <th scope="col">views</th>
             <th scope="col">like</th>
             <th scope="col">dislike</th>
-            <th></th>
+            <th style="width: max-content;" class="w-75"></th>
         </tr>
     </thead>
     <tbody>
@@ -18,13 +30,25 @@
             <td>{{t.brief}}</td>
             <td>{{t.content}}</td>
             <td>{{t.author}}</td>
-            <td>{{t.fileLocation}}</td>
+            <td>{{t.file}}</td>
             <td>{{t.views}}</td>
             <td>{{t.totalLike}}</td>
             <td>{{t.totalDislike}}</td>
-            <td><a href="/detailIdea/{{t.id}}" routerLink="/detailIdea/{{t.id}}">Details</a> | <button (onclick) = "reactionIdea(true,t.id)">Like</button> | <button (onclick) = "reactionIdea(true,t.id)">Dislike</button></td>
+            <td><a href="/detailIdea/{{t.id}}" routerLink="/detailIdea/{{t.id}}">Details</a> | <button class="btn btn-link" (click) = "reactionIdea(true,t.id)">Like</button> | <button class="btn btn-link" (click) = "reactionIdea(false,t.id)">Dislike</button></td>
         </tr>
     </tbody>
-  
+    <tfoot>
+        <tr>
+            <td><button style="float: left;" (click)="goPreviousPage()" class="btn btn-link">previous</button></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><button style="float: right;" (click)="goNextPage()" class="btn btn-link" [ngClass]="{'hideBtn': currPage>=totalPages}">next</button> </td>
+        </tr>
+      </tfoot>
   </table>
   

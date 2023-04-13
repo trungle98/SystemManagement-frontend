@@ -1,0 +1,12 @@
+.highlightedRed {
+    background-color: red;
+  }
+.highlightedYellow {
+    background-color: yellow;
+  }
+.highlightGreen {
+    background-color: green;
+  }
+.hideBtn{
+    visibility: hidden;
+}

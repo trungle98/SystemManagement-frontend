@@ -7,7 +7,7 @@ export class IdeaReaction {
 
     author? :String ;
 
-    fileLocation? :String ;
+    file? :String ;
 
     topicId? :String ;
     views?:number;
