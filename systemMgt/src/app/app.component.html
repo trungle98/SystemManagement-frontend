@@ -6,11 +6,9 @@
         <a href="/home" class="nav-link" routerLink="home">Home </a>
       </li>
 
-      <li class="nav-item" *ngIf="showAdminBoard">
-        <a href="/admin" class="nav-link" routerLink="admin">Admin Board</a>
-      </li>
-      <li class="nav-item" *ngIf="showAdminBoard">
-        <select class="nav-link dropdown-toggle text-dark" onchange="location = this.value;">
+
+      <li class="nav-item bg-dark" *ngIf="showAdminBoard">
+        <select class="nav-link dropdown-toggle bg-dark" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="navbarDropdownMenuLink" onchange="location = this.value;">
           <option selected> <a href="/#" class="nav-link" routerLink="admin">Management</a></option>
           <option value="/category"> <a href="/category" class="nav-link" routerLink="admin">Category</a></option>
           <option value="/topic/view"> <a href="/topic/view" class="nav-link" routerLink="admin">Submission</a></option>
@@ -21,11 +19,11 @@
         
       </li>
 
-      <li class="nav-item" *ngIf="showManagerBoard">
-        <a href="/manager" class="nav-link" routerLink="manager">manager Board</a>
+      <li class="nav-item">
+        <a href="/staff" class="nav-link" *ngIf="isLoggedIn" routerLink="staff">Idea Submission</a>
       </li>
       <li class="nav-item">
-        <a href="/staff" class="nav-link" *ngIf="showStaffBoard" routerLink="staff">staff</a>
+        <a href="/analytics" class="nav-link" *ngIf="showAdminBoard||showManagerBoard" routerLink="analytics">Analytics</a>
       </li>
       <li class="nav-item">
         <a href="/dept" class="nav-link" *ngIf="showDeptBoard" routerLink="dept">dept</a>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { IdeaService } from 'src/app/_services/idea.service';
 import { TopicService } from 'src/app/_services/topic.service';
 import { Topic } from 'src/app/models/topic';
 
@@ -12,12 +13,14 @@ export class ViewTopicComponent {
 
 
 
+
   topics?: Topic[];
   msg?: String;
   currPage = 0;
   totalPages = 0;
   showAlert: any;
   constructor(private topicService: TopicService,
+    private ideaService: IdeaService,
     private router: Router) { }
 
   ngOnInit(): void {
@@ -124,7 +127,17 @@ export class ViewTopicComponent {
           }
         });
       }
-      goToCreateTopic() {
-        this.router.navigate(['topic/create']);
-        }
+    goToCreateTopic() {
+      this.router.navigate(['topic/create']);
+    }
+    download(topicId: number) {
+        this.ideaService.exportIdeaByTopicId(topicId).subscribe(blob => {
+          const a = document.createElement('a');
+          const objectURL = URL.createObjectURL(blob)
+          a.href = objectURL
+          a.download = topicId+".xlsx"
+          a.click()
+          URL.revokeObjectURL(objectURL)
+        })
+    }
 }

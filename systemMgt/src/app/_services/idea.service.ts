@@ -44,5 +44,7 @@ export class IdeaService {
     
     return this.http.get<Comment[]> (API_URL + '/getAllComment/?ideaId='+ideaId);
   }
-
+  exportIdeaByTopicId(topicId: number) {
+    return this.http.get(API_URL + '/exportExcel/?topicId='+topicId, {responseType:'blob'});
+  }
 }

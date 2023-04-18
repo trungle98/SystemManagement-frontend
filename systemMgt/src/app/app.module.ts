@@ -23,6 +23,7 @@ import { CreateIdeaComponent } from './components/create-idea/create-idea.compon
 import { CreateCategoryComponent } from './components/create-category/create-category.component';
 import { ViewTopicComponent } from './components/view-topic/view-topic.component';
 import { CreateTopicComponent } from './components/create-topic/create-topic.component';
+import { AnalyticsPageComponent } from './components/analytics-page/analytics-page.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { CreateTopicComponent } from './components/create-topic/create-topic.com
     CreateIdeaComponent,
     CreateCategoryComponent,
     ViewTopicComponent,
-    CreateTopicComponent
+    CreateTopicComponent,
+    AnalyticsPageComponent
   ],
   imports: [
     BrowserModule,

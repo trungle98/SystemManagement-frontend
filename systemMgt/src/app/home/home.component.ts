@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../_services/user.service';
+import { HomeService } from '../_services/home.service';
+import { Idea } from '../models/idea';
 
 @Component({
   selector: 'app-home',
@@ -8,19 +10,46 @@ import { UserService } from '../_services/user.service';
 })
 export class HomeComponent implements OnInit {
   content?: string;
-
-  constructor(private userService: UserService) { }
+  mostViewIdeas?:Idea[];
+  mostLikeIdeas?:Idea[];
+  constructor(private homeService: HomeService) { }
 
   ngOnInit(): void {
-    this.userService.getPublicContent().subscribe({
+    this.getTopLikeIdea()
+    this.getTopViewsIdea()
+  }
+
+  getTopLikeIdea() {
+    this.homeService.getTopLikeIdea().subscribe({
       next: data => {
-        this.content = data;
+        console.log(data);
+        this.mostLikeIdeas = data;
       },
-      error: err => {console.log(err)
+      error: err => {
         if (err.error) {
-          this.content = JSON.parse(err.error).message;
+          try {
+            const res = JSON.parse(err.error);
+          } catch {
+          }
         } else {
-          this.content = "Error with status: " + err.status;
+        }
+      }
+    });
+  }
+
+  getTopViewsIdea() {
+    this.homeService.getTopViewsIdea().subscribe({
+      next: data => {
+        console.log(data);
+        this.mostViewIdeas = data;
+      },
+      error: err => {
+        if (err.error) {
+          try {
+            const res = JSON.parse(err.error);
+          } catch {
+          }
+        } else {
         }
       }
     });

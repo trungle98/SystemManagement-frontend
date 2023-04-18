@@ -1,7 +1,56 @@
 <div class="container">
-  <img src="../../assets/images/greenwich-9.jpg" style="width: fit-content;" class="img-fluid" alt="Responsive image">
-    <header class="jumbotron">
-      <p>{{ content }}</p>
-    </header>
+  <!-- <img src="../../assets/images/greenwich-9.jpg" style="width: fit-content;" class="img-fluid" alt="Responsive image"> -->
+    <div >
+      <div>
+        <h2>Most view Idea</h2>
+        <table class="table table-striped">
+          <thead>
+              <tr>
+                  <th scope="col">Brief</th>
+                  <th scope="col">Content</th>
+                  <th scope="col">Author</th>
+                  <th scope="col">Views</th>
+                  <th></th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor ="let i of mostViewIdeas">
+                  <td>{{i.brief}}</td>
+                  <td>{{i.content}}</td>
+                  <td>{{i.author}}</td>
+                  <td>{{i.views}}</td>
+                  <td><a href="/detailIdea/{{i.id}}" routerLink="/detailIdea/{{i.id}}">Details</a></td>
+              </tr>
+          </tbody>
+      
+      </table>
+      </div>
+      <div>
+        <h2>Most like Idea</h2>
+
+        <table class="table table-striped">
+          <thead>
+              <tr>
+                  <th scope="col">Brief</th>
+                  <th scope="col">Content</th>
+                  <th scope="col">Author</th>
+                  <th scope="col">Views</th>
+                  <th></th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor ="let i of mostLikeIdeas">
+                  <td>{{i.brief}}</td>
+                  <td>{{i.content}}</td>
+                  <td>{{i.author}}</td>
+                  <td>{{i.views}}</td>
+                  <td><a href="/detailIdea/{{i.id}}" routerLink="/detailIdea/{{i.id}}">Details</a></td>
+              </tr>
+          </tbody>
+      
+      </table>
+      </div>
+
+    </div>
   </div>
   

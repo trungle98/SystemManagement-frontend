@@ -16,6 +16,7 @@
             <th scope="col">Deadline_1</th>
             <th scope="col">Deadline_2</th>
             <th></th>
+            <th></th>
         </tr>
     </thead>
     <tbody style="height: 40em;">
@@ -24,7 +25,11 @@
             <td>{{t.name}}</td>
             <td>{{t.closure}}</td>
             <td>{{t.finalClosure}}</td>
-            <td><button class="fa fa-edit" style="color: red;"(click)="getTopic(t.id)"></button> | <button class="fa fa-info" style="color: red;"(click)="detailTopic(t.id)"></button> | <button class="fa fa-trash" style="color: red;"(click)="deleteTopic(t.id)"></button></td>
+            <td><button class="fa fa-edit btn btn-link" style="color: red;"(click)="getTopic(t.id)"></button> | <button class="fa fa-info btn btn-link" style="color: red;"(click)="detailTopic(t.id)"></button> | <button class="fa fa-trash btn btn-link" style="color: red;"(click)="deleteTopic(t.id)"></button></td>
+            <td><div *ngIf="t.id != ''">
+                <button class="btn btn-link" (click)="download(t.id)">Download</button>
+            
+            </div></td>
         </tr>
     </tbody>
     <tfoot>

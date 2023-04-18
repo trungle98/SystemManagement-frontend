@@ -9,4 +9,5 @@ export class Topic {
         this.closure = closure;
         this.finalClosure = finalClosure;
     }
+    
 }
