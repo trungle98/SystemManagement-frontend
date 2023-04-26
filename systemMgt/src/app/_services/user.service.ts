@@ -1,32 +1,41 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { User } from '../models/user';
 
-const API_URL = 'http://localhost:8081/api/';
+
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
+  private apiUrl = 'http://localhost:8081/api/user';
+
   constructor(private http: HttpClient) {}
 
-  getPublicContent(): Observable<any> {
-    return this.http.get(API_URL + 'test/all', { responseType: 'text' });
+  deleteUser(userId: number): Observable<void> {
+    const url = `${this.apiUrl}/${userId}`;
+    return this.http.delete<void>(url);
   }
 
-  getStaffBoard(): Observable<any> {
-    return this.http.get(API_URL + 'staff/all', { responseType: 'text' });
-  }
-  
-  getManagerBoard(): Observable<any> {
-    return this.http.get(API_URL + 'manager', { responseType: 'text' });
+  updateUser(user: User): Observable<any> {
+    const url = `${this.apiUrl}/${user.id}`;
+    // return this.http.post(url, user);
+    return this.http.post(url,user, { responseType: 'blob' });
   }
 
-  getAdminBoard(): Observable<any> {
-    return this.http.get(API_URL + 'test/admin', { responseType: 'text' });
+  getUserByID(userId: number): Observable<User> {
+    const url = `${this.apiUrl}/${userId}`;
+    return this.http.get<User>(url);
   }
 
-  getDeptBoard(): Observable<any> {
-    return this.http.get(API_URL + 'dept', { responseType: 'text' });
+  createUser(user: User): Observable<any> {
+    //return this.http.post<User>(this.apiUrl, user);
+    return this.http.post(this.apiUrl + '/save',user, { responseType: 'blob' });
+  }
+
+  getUser(): Observable<User[]> {
+    const url = `${this.apiUrl}`+'/all';
+    return this.http.get<User[]>(url);
   }
 }

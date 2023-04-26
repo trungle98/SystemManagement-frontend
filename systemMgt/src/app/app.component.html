@@ -12,9 +12,9 @@
           <option selected> <a href="/#" class="nav-link" routerLink="admin">Management</a></option>
           <option value="/category"> <a href="/category" class="nav-link" routerLink="admin">Category</a></option>
           <option value="/topic/view"> <a href="/topic/view" class="nav-link" routerLink="admin">Submission</a></option>
-          <option> <a href="/#" class="nav-link" routerLink="admin">Department</a></option>
-          <option> <a href="/#" class="nav-link" routerLink="admin">Role</a></option>
-          <option> <a href="/#" class="nav-link" routerLink="admin">User</a></option>
+          <option value="/#" class="nav-link" routerLink="admin">Department</option>
+          <option value="/roleManager" class="nav-link" routerLink="roleManager">Role</option>
+          <option value="/userManager" class="nav-link" routerLink="userManager">User</option>
         </select>
         
       </li>
@@ -24,9 +24,6 @@
       </li>
       <li class="nav-item">
         <a href="/analytics" class="nav-link" *ngIf="showAdminBoard||showManagerBoard" routerLink="analytics">Analytics</a>
-      </li>
-      <li class="nav-item">
-        <a href="/dept" class="nav-link" *ngIf="showDeptBoard" routerLink="dept">dept</a>
       </li>
     </ul>
 

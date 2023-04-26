@@ -17,6 +17,8 @@ import { CreateCategoryComponent } from './components/create-category/create-cat
 import { ViewTopicComponent } from './components/view-topic/view-topic.component';
 import { CreateTopicComponent } from './components/create-topic/create-topic.component';
 import { AnalyticsPageComponent } from './components/analytics-page/analytics-page.component';
+import { UserComponent } from './components/user/user.component';
+import { RoleComponent } from './components/role/role.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -35,6 +37,8 @@ const routes: Routes = [
   {path: 'topic/view', component:ViewTopicComponent},
   {path: 'topic/create', component:CreateTopicComponent},
   {path: 'analytics', component:AnalyticsPageComponent},
+  {path: 'userManager', component:UserComponent},
+  {path: 'roleManager', component:RoleComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 

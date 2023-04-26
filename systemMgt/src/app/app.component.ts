@@ -29,7 +29,7 @@ export class AppComponent {
       this.showStaffBoard = this.roles.includes('ROLE_STAFF');
       this.showManagerBoard = this.roles.includes('ROLE_MANAGER');
       this.showDeptBoard = this.roles.includes('ROLE_DEPT');
-
+      
       this.username = user.username;
     }
   }

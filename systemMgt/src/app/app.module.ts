@@ -24,6 +24,9 @@ import { CreateCategoryComponent } from './components/create-category/create-cat
 import { ViewTopicComponent } from './components/view-topic/view-topic.component';
 import { CreateTopicComponent } from './components/create-topic/create-topic.component';
 import { AnalyticsPageComponent } from './components/analytics-page/analytics-page.component';
+import { UserComponent } from './components/user/user.component';
+import { TestComponent } from './test/test.component';
+import { RoleComponent } from './components/role/role.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +47,10 @@ import { AnalyticsPageComponent } from './components/analytics-page/analytics-pa
     CreateCategoryComponent,
     ViewTopicComponent,
     CreateTopicComponent,
-    AnalyticsPageComponent
+    AnalyticsPageComponent,
+    UserComponent,
+    TestComponent,
+    RoleComponent
   ],
   imports: [
     BrowserModule,
