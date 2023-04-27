@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from '../models/user';
+import { UserDto } from '../models/user-dto';
 
 
 
@@ -14,8 +15,8 @@ export class UserService {
   constructor(private http: HttpClient) {}
 
   deleteUser(userId: number): Observable<void> {
-    const url = `${this.apiUrl}/${userId}`;
-    return this.http.delete<void>(url);
+    const url = `${this.apiUrl}/delete/${userId}`;
+    return this.http.get<void>(url);
   }
 
   updateUser(user: User): Observable<any> {
@@ -34,8 +35,8 @@ export class UserService {
     return this.http.post(this.apiUrl + '/save',user, { responseType: 'blob' });
   }
 
-  getUser(): Observable<User[]> {
+  getUser(): Observable<UserDto[]> {
     const url = `${this.apiUrl}`+'/all';
-    return this.http.get<User[]>(url);
+    return this.http.get<UserDto[]>(url);
   }
 }

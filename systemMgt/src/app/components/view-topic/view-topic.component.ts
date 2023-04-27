@@ -140,4 +140,15 @@ export class ViewTopicComponent {
           URL.revokeObjectURL(objectURL)
         })
     }
+
+    downloadAsZip(topicId: number) {
+      this.ideaService.exportZipIdeaByTopicId(topicId).subscribe(blob => {
+        const a = document.createElement('a');
+        const objectURL = URL.createObjectURL(blob)
+        a.href = objectURL
+        a.download = topicId+".zip"
+        a.click()
+        URL.revokeObjectURL(objectURL)
+      })
+  }
 }

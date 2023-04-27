@@ -25,10 +25,10 @@ export class RoleService {
   }
 
   updateRole(role: Role): Observable<Role> {
-    return this.http.put<Role>(`${this.API_URL}/${role.id}`, role);
+    return this.http.post<Role>(`${this.API_URL}/${role.id}`, role);
   }
 
   deleteRole(id: number): Observable<any> {
-    return this.http.delete<any>(`${this.API_URL}/${id}`);
+    return this.http.get<any>(`${this.API_URL}/delete/${id}`);
   }
 }

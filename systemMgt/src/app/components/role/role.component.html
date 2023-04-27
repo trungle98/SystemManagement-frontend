@@ -36,7 +36,7 @@
           </button>
           <button type="button"
                   class="btn btn-danger"
-                  (click)="deleteRole(selectedRole.id)">
+                  (click)="deleteRole(selectedRole.id, selectedRole.name)">
             Delete
           </button>
         </form>
@@ -45,7 +45,7 @@
   
     <div class="row mt-3" *ngIf="error">
       <div class="col-sm-6">
-        <div class="alert alert-danger">{{ error }}</div>
+        <div class="alert alert-danger">Error when processing</div>
       </div>
     </div>
   </div>

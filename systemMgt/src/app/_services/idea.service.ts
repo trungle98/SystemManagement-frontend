@@ -6,6 +6,7 @@ import { Comment } from 'src/app/models/comment';
 import { IdeaReaction } from '../models/idea-reaction';
 
 const API_URL = 'http://localhost:8081/api/idea';
+const API_URL_TOPIC = 'http://localhost:8081/api/topic';
 const url = API_URL+'/files/?filename=';
 
 @Injectable({
@@ -46,5 +47,9 @@ export class IdeaService {
   }
   exportIdeaByTopicId(topicId: number) {
     return this.http.get(API_URL + '/exportExcel/?topicId='+topicId, {responseType:'blob'});
+  }
+
+  exportZipIdeaByTopicId(topicId: number) {
+    return this.http.get(API_URL_TOPIC + '/exportZip/?topicId='+topicId, {responseType:'blob'});
   }
 }

@@ -6,7 +6,7 @@
         Idea is saved!
       </div>
     <div>
-    <button (click)="goToCreateTopic()" class="btn btn-success">Create Idea</button>
+    <button (click)="goToCreateTopic()" class="btn btn-success">Create Submission</button>
 </div>
 <table class="table table-striped table-responsive-lg">
     <thead>
@@ -27,8 +27,8 @@
             <td>{{t.finalClosure}}</td>
             <td><button class="fa fa-edit btn btn-link" style="color: red;"(click)="getTopic(t.id)"></button> | <button class="fa fa-info btn btn-link" style="color: red;"(click)="detailTopic(t.id)"></button> | <button class="fa fa-trash btn btn-link" style="color: red;"(click)="deleteTopic(t.id)"></button></td>
             <td><div *ngIf="t.id != ''">
-                <button class="btn btn-link" (click)="download(t.id)">Download</button>
-            
+                <button class="btn btn-link" (click)="download(t.id)">Download as Json</button>
+                <button class="btn btn-link" (click)="downloadAsZip(t.id)">Download as Zip</button>
             </div></td>
         </tr>
     </tbody>

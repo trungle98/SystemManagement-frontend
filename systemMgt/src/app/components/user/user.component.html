@@ -1,30 +1,42 @@
-<div class="container">
+<div class="container-fluid" style="width: 120%;">
+  <div class="row">
+    <div class="col-md-8">
     <h1>Users</h1>
-    <table class="table">
-      <thead>
-        <tr>
-          <th>User ID</th>
-          <th>Email</th>
-          <th>Username</th>
-          <th>Department ID</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let user of users">
-          <td>{{ user.id }}</td>
-          <td>{{ user.email }}</td>
-          <td>{{ user.username }}</td>
-          <td>{{ user.departmentId }}</td>
-          <td>
-            <button class="btn btn-primary" (click)="editUser(user)">Edit</button>
-            <button class="btn btn-danger" (click)="deleteUser(user)">Delete</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="table-wrapper">
+      <input class="form-control" id="myInput" type="text" placeholder="Search..">
+      <br>
+      <table class="table table-earnings table-earnings__challenge">
+        <thead>
+          <tr>
+            <th>User ID</th>
+            <th>Email</th>
+            <th>Username</th>
+            <th>Department Name</th>
+            <th>Role</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users">
+            <td>{{ user.userId }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.username }}</td>
+            <td>{{ user.deptName }}</td>
+            <td>{{ user.role }}</td>
+            <td>
+              <button class="btn btn-primary" (click)="editUser(user)">Edit</button>
+              <button class="btn btn-danger" (click)="deleteUser(user)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
     <hr>
-    <form (ngSubmit)="submitForm()">
+
+  </div>
+  <div class="col-md-4">
+    <form (ngSubmit)="submitForm()" style="padding-top: 10%;">
       <div class="form-group">
         <label for="email">Email:</label>
         <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"   [(ngModel)]="user.email" name="email" required>
@@ -41,7 +53,18 @@
         <label for="departmentId">Department ID:</label>
         <input type="number" class="form-control" id="departmentId" [(ngModel)]="user.departmentId" name="departmentId" required>
       </div>
+      <!-- <div class="form-group">
+        <select [(ngModel)]="selector" name="mySelect" required>
+          <option [value]="''">Select an option</option>
+          <option *ngFor="let option of roles" [value]="option.id">{{ option.name }}</option>
+        </select>
+      </div> -->
       <button type="submit" class="btn btn-primary">{{ editMode ? 'Update' : 'Create' }}</button>
     </form>
   </div>
-  
+  </div>
+  </div>
+  <script src="../../_shared/external.js">
+    console.log('Hello, world!');
+    </script>
+    

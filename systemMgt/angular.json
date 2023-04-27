@@ -91,7 +91,9 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/app/_shared/external.js"
+            ]
           }
         }
       }

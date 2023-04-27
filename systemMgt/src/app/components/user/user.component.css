@@ -1,0 +1,9 @@
+.table-wrapper {
+    max-height: 800px;
+    overflow: auto;
+    display:inline-block;
+  }
+  .table-earnings {
+    background: #F3F5F6;
+  }
+  
